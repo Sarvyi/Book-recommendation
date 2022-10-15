@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Book Recommender System</title>
+  <style>
+    .text-white,.book-content{
+        color:white
+    }
+  </style>
+</head>
+<body style="background-color: black;">
+  
+  <nav class="navbar" style="background-color:#00a65a">
+    <a class="navbar-brand">My Book recommender</a>
+    <ul class="nav navbar-nav">
+        <li style="color: white;"><a href="/">Home</a></li>
+        <li style="color: white;"><a href="/recommend">Recommend</a></li>
+        <li style="color: white;"><a>Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="margin: 20px;">
+        <h1 class="text-white">Top 50 Books</h1>
+      </div>
+
+    {% for i in range(book_name|length) %}
+      <div class="col-md-2" style="margin: 20px;">
+        <div class="card">
+          <div class="car-body">
+            <img src="{{ book_url[i] }}" alt="" class="card-img-top">
+            <h4 class="book-content">{{ book_name[i] }}</h4>
+            <h4 class="book-content">{{ book_author[i] }}</h4>
+            <h6 class="book-content">Votes : {{ voting[i] }}</h6> 
+            <h6 class="book-content">Rating : {{ rating[i] }}</h6> 
+          </div> 
+        </div>
+      </div>
+    {% endfor %}
+
+    
+    </div>
+  </div>
+
+</body>
+</html>
